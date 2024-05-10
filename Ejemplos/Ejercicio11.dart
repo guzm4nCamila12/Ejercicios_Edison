@@ -7,7 +7,7 @@ void main(){
     print("Ingrese cuanto vale y: ");
     int? y = int.parse(stdin.readLineSync()!);
 
-    print("Numeros impares entre " +x+ " y " +y+ " :");
+    print("Numeros impares entre $x y $y :");
 
     for (int i = x; i <= y; i++) {
         if (i % 2 != 0) {

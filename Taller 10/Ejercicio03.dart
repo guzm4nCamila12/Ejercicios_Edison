@@ -18,8 +18,8 @@ void main() {
     contador++;
   }
 
-  if (n > 0) {
-    alturaPromedio = sumaAlturas / n;
+  if (cantidadAltura > 0) {
+    alturaPromedio = sumaAlturas;
     print("La altura promedio de las personas es: $alturaPromedio");
   } else {
     print("No se ingresaron alturas.");

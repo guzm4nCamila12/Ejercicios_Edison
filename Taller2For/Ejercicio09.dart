@@ -10,15 +10,15 @@ void main(){
     print("3: Terminar");
     print(facturas);
 
-    int opcion = int.parse(stdin.readLineSync()toString());
+    int opcion = int.parse(stdin.readLineSync().toString());
 
     switch (opcion) {
         case 1: 
         print("Añadir una nueva factura");
         print("Ingrese el número de la factura: ");
-        int numFac = int.parse(stdin.readLineSync()toString()):
+        int numFac = int.parse(stdin.readLineSync().toString());
         print("Ingrese el valor de la factura: ");
-        facturas [numFac] = int.parse(stdin.readLineSync()toString()):
+        facturas [numFac] = int.parse(stdin.readLineSync().toString());
         print(facturas);
         facturas.forEach((key, value){
             suma = suma + value;
@@ -30,11 +30,11 @@ void main(){
         case 2:
         print("Pagar una factura");
         print("Ingrese el número de la factura que desea borrar: ");
-        int numFac = int.parse(stdin.readLineSync()toString());
+        int numFac = int.parse(stdin.readLineSync().toString());
         facturas.remove(numFac);
         print(facturas);
 
-        fcaturas.forEach((key, value){
+        facturas.forEach((key, value){
             suma = suma + value;
         });
 

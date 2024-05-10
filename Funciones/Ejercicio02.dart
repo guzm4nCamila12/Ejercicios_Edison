@@ -5,7 +5,7 @@ void main(){
     int? num = int.parse(stdin.readLineSync()!);
 }
 
-sumarImpares(){
+sumarImpares(num){
     for(int i=0; i<num; i++){
         if(num %2 !=0){
             

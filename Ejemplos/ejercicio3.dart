@@ -11,7 +11,7 @@ void main(){
     int resta = numero1 - numero2;
     int multiplicacion = numero1 * numero2;
 
-    print("La suma de " +numero1+ " y " +numero2+ " es:" +suma.toString());
-    print("La resta de " +numero1+ " y " +numero2+ " es: " +resta.toString());
-    print("La multiplicacion de " +numero1+ " y " +numero2+ " es: " +multiplicacion.toString());
+    print("La suma de $numero1 y $numero2 es:" +suma.toString());
+    print("La resta de $numero1 y $numero2 es: " +resta.toString());
+    print("La multiplicacion de $numero1 y $numero2 es: " +multiplicacion.toString());
 }
