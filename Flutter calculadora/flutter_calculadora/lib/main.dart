@@ -1,22 +1,70 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_calculadora/Pagina/calculadora.dart';
+import 'package:flutter_calculadora/config/temas/app_temas.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const AppLayout());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class AppLayout extends StatelessWidget {
+  const AppLayout({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+      home: Scaffold(
+        body: SafeArea(
+          child: Container(
+            color: Colors.black,
+            height: double.infinity,
+            width: double.infinity,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween, // Espaciado entre los hijos
+              children: [
+                // Pantalla de la calculadora
+                Expanded(
+                  flex: 4,
+                  child: Container(
+                    color: Colors.black,
+                    width: double.infinity,
+                    height: double.infinity,
+                    padding: const EdgeInsets.symmetric(horizontal: 10),
+                    child: const Align(
+                      alignment: Alignment.bottomRight, // Alinea el texto a la derecha
+                      child: Text(
+                        "3x2",
+                        style: TextStyle(fontSize: 65, color: Colors.white),
+                      ),
+                    ),
+                  ),
+                ),
+                // Botones de la calculadora
+                Expanded(
+                  flex: 7,
+                  child: Container(
+                    color: Colors.black,
+                    padding: const EdgeInsets.all(10),
+                    child: GridView.count(
+                      crossAxisCount: 4, // 4 columnas de botones
+                      crossAxisSpacing: 20, // Espacio entre columnas
+                      mainAxisSpacing: 16, // Espacio entre filas
+                      shrinkWrap: true, // Envuelve el contenido
+                      children: List.generate(20, (index) {
+                        return Container(
+                          decoration: BoxDecoration(
+                            color: colors[index], // Color del botón
+                            borderRadius: const BorderRadius.all(Radius.circular(255)), // Bordes redondeados
+                          ),
+                          child: Center(child: controllers[index]), // Centra el contenido del botón
+                        );
+                      }),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
       ),
-      // home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }
