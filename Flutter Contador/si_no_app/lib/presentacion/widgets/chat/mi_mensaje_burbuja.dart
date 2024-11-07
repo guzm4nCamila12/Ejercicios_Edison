@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:si_no_app/dominio/entidades/mensajes.dart';
 
 class MiMensajeBurbuja extends StatelessWidget{
-  const MiMensajeBurbuja({super.key});
+  final Mensaje mensaje;
+
+  const MiMensajeBurbuja({super.key, required this.mensaje});
   
   @override
   Widget build(BuildContext context) {

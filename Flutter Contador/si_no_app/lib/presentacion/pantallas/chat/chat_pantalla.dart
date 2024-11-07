@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:si_no_app/dominio/entidades/mensajes.dart';
+import 'package:si_no_app/presentacion/providers/chat_providers.dart';
 import 'package:si_no_app/presentacion/widgets/chat/mi_mensaje_burbuja.dart';
 import 'package:si_no_app/presentacion/widgets/chat/su_mensaje_burbuja.dart';
 import 'package:si_no_app/presentacion/widgets/compartido/caja_de_texto.dart';
@@ -30,6 +33,9 @@ class _ChatView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    final chatProviders = context.watch()<ChatProviders>();
+
     return SafeArea(
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal:10),
@@ -37,13 +43,18 @@ class _ChatView extends StatelessWidget {
           children: [
             Expanded(
               child: ListView.builder(
-                itemCount: 100,
+                itemCount: chatProviders.mensajeLista.length,
                 itemBuilder: (context, index){
-                  return (index % 2 == 0)
-                  ?const SuMensajeBurbuja()
-                  :const MiMensajeBurbuja();
+                  final mensaje = chatProviders.mensajeLista[index];
+
+                  return (mensaje.deQuien == DeQuien.ella)
+                  ? const SuMensajeBurbuja()
+                  : MiMensajeBurbuja(mensaje: mensaje);
                 })),
-                const CajadeTexto()
+                //const CajadeTexto()
+                CajadeTexto(
+                  onValue: chatProviders.sendMessage,
+                )
           ],
         ),
       ),
